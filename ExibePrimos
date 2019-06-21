@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int calcula_primo(int num);
+void exibePrimos(int max);
+
+/* este programa exibe todos os numeros primos em um dado intervalo*/
+int main(){
+	int intervalo,continuar=0;
+		do{
+			printf("Informe o final do intervalo:");
+			scanf("%d",&intervalo);
+			exibePrimos(intervalo);
+			printf("\n\n");
+			printf("Deseja realizar outro intervalo? se sim digite 1");
+			scanf("%d",&continuar);
+			system("cls");	
+		}while(continuar==1);
+		
+	return 0;
+}
+
+/*Função calcula_primo 2
+	verifica se um numero é primo o dividindo por todos numeros até que o divisor seja maior ou igaul ao dividendo*/
+int calcula_primo(int num){
+	int divisor;
+		for(divisor=2;divisor<num;divisor++){ //executa o laço até que divisor seja maior ou igual a numero candidato a primo
+			if(num%divisor!=0)	//se o resto da divisão for diferente de zero continua
+				continue;
+			else
+				return 0;	//caso não seja diferente de zero o umero não é primo
+		}
+		return 1;
+}
+
+/* Função exibe primos
+	Recebe um numero inteiro n e exibe todos os primos até ele*/
+void exibePrimos(int max){
+	int i=0;
+		for(i=1;i<=max;i++){
+			if(calcula_primo(i) == 1){
+				printf("%d\n",i);	
+			}
+			
+		}
+}
